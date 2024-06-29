@@ -1,0 +1,38 @@
+<!-- result.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hasil Rekomendasi</title>
+    <!-- Link ke stylesheet untuk styling halaman -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Rekomendasi untuk Buku: {{ book_info['judul_buku'] }}</h1>
+        <!-- Menampilkan rating buku -->
+        <p><strong>Rating:</strong> {{ book_info['rating'] }}</p>
+
+        <h2>Skor Rekomendasi</h2>
+        <!-- Daftar skor rekomendasi dari berbagai metode -->
+        <ul>
+            <li><strong>Fuzzy Inference System:</strong> {{ fis_score }} - {{ fis_recommendation }}</li>
+            <li><strong>Neural Network:</strong> {{ nn_score }} - {{ nn_recommendation }}</li>
+            <li><strong>Neuro-Fuzzy System:</strong> {{ nf_score }} - {{ nf_recommendation }}</li>
+            <li><strong>Support Vector Machine & Genetic Algorithm:</strong> {{ svm_gen_score }} - {{ svm_gen_recommendation }}</li>
+        </ul>
+
+        <h2>Penjelasan Skor</h2>
+        <!-- Penjelasan tentang setiap metode rekomendasi -->
+        <ul>
+            <li><strong>Fuzzy Inference System:</strong> Metode FIS memberikan skor berdasarkan fuzzifikasi input (mis. rating pengguna), aturan fuzzy, dan defuzzifikasi untuk menghasilkan nilai skor rekomendasi.</li>
+            <li><strong>Neural Network:</strong> Jaringan saraf digunakan untuk mempelajari pola dari data latih, termasuk rating pengguna dan fitur buku, untuk memprediksi kualitas atau skor rekomendasi buku.</li>
+            <li><strong>Neuro-Fuzzy System:</strong> Kombinasi antara FIS dan jaringan saraf untuk menggabungkan kelebihan keduanya dalam menangani ketidakpastian dan kompleksitas data rekomendasi buku.</li>
+            <li><strong>Support Vector Machine & Genetic Algorithm:</strong> SVM digunakan untuk mengklasifikasikan atau memprediksi kualitas buku berdasarkan vektor dukungan yang optimal, sedangkan algoritma genetik digunakan untuk menyesuaikan parameter SVM agar sesuai dengan data rekomendasi.</li>
+        </ul>
+
+        <!-- Tautan untuk kembali ke halaman utama -->
+        <a href="/">Kembali</a>
+    </div>
+</body>
+</html>

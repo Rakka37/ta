@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistem Rekomendasi Buku</title>
+    <!-- Link ke stylesheet untuk styling halaman -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Rekomendasi Buku</h1>
+        <!-- Form untuk memasukkan user_id dan book_id dan mengirimkan permintaan POST ke /recommend -->
+        <form action="/recommend" method="post">
+            <!-- Label dan input untuk User ID -->
+            <label for="user_id">User ID:</label>
+            <input type="number" id="user_id" name="user_id" min="1" max="5" required>
+            <!-- Label dan input untuk Book ID -->
+            <label for="book_id">Book ID:</label>
+            <input type="number" id="book_id" name="book_id" min="1" max="5" required>
+            <!-- Tombol untuk mengirim form -->
+            <input type="submit" value="Rekomendasikan">
+        </form>
+    </div>
+</body>
+</html>
